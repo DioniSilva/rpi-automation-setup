@@ -2,10 +2,10 @@ mqtt:
   enabled: false
 
 cameras:
-  cameraDefault1:
+  usb_camera:
     ffmpeg:
       inputs:
-        - path: rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov
+        - path: rtsp://host.docker.internal:8554/mystream
           roles:
             - detect
     detect:

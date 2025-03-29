@@ -12,19 +12,27 @@ services:
 
   # frigate:
   #   container_name: frigate
-  #   image: ghcr.io/blakeblackshear/frigate:stable
+  #   image: blakeblackshear/frigate:stable
   #   privileged: true
   #   restart: unless-stopped
   #   shm_size: "512mb"
+  #   ports:
+  #     - "5000:5000"
   #   volumes:
   #     - ./frigate/config:/config
-  #     - /etc/localtime:/etc/localtime:ro
   #     - ./frigate/media:/media/frigate
-  #   ports:
-  #     - "5000:5000"   # Interface Web
-  #     - "8554:8554"   # RTSP Restream
-  #     - "1935:1935"   # WebRTC/Live
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - type: tmpfs
+  #       target: /tmp/cache
+  #       tmpfs:
+  #         size: 64M
   #   environment:
   #     FRIGATE_RTSP_PASSWORD: "1234"
-  #   devices:
-  #     - /dev/bus/usb:/dev/bus/usb  # se usar Coral USB (opcional)
+
+  # rtsp-server:
+  #   container_name: rtsp-server
+  #   image: aler9/rtsp-simple-server
+  #   ports:
+  #     - "8554:8554"
+  #   restart: unless-stopped
+

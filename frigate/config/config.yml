@@ -12,5 +12,46 @@ cameras:
       width: 640
       height: 480
       fps: 5
+  ic3_camera:
+    ffmpeg:
+      inputs:
+        - path: rtsp://admin:BMVQPP@192.168.1.15:554/cam/realmonitor?channel=1&subtype=1
+          roles:
+            - detect
+            - record
+            - rtmp
+    detect:
+      width: 1280
+      height: 720
+      fps: 5
+    zones:
+      Portao:
+        coordinates: 701,114,1250,202,1199,474,672,482
+        loitering_time: 3
+        objects:
+          - person
+          - car
+          - dog
+    objects:
+      track:
+        - person
+        - car
+        - dog
+      filters:
+        dog:
+          mask: 0.788,0.569,0.933,0.568,0.995,0.748,0.776,0.861,0.715,0.568
+    snapshots:
+      enabled: true
+      timestamp: true
+      bounding_box: true
+      retain:
+        default: 2
+      required_zones:
+        - Portao
+    review:
+      alerts:
+        required_zones: Portao
+      detections:
+        required_zones: Portao
       
 version: 0.15-1

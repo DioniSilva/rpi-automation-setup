@@ -5,8 +5,8 @@ Este repositório contém os arquivos de instalação e configuração do seu Ra
 ## 📦 O que está incluído
 
 - `setup_raspberry.sh`: script de pós-instalação que atualiza o sistema, instala Docker, Docker Compose e Tailscale.
-- `docker-compose.yml`: arquivo para rodar o Home Assistant em container Docker.
-- Estrutura pronta para você expandir com novos serviços (Node-RED, MQTT, Frigate, etc).
+- `docker-compose.yml`: arquivos para rodar o Home Assistant e o Frigate em containers Docker.
+- `frigate/config/config.yml`: arquivo de configuração do Frigate (sem MQTT).
 
 ## 🚀 Como usar
 
@@ -24,13 +24,27 @@ chmod +x setup_raspberry.sh
 ./setup_raspberry.sh
 ```
 
-3. Acesse o Home Assistant em `http://<ip-do-raspberry>:8123`
+3. Suba os containers:
 
-## 💡 Requisitos
+```bash
+docker compose up -d
+```
 
-- Raspberry Pi OS Lite (Bullseye ou mais recente)
-- Docker instalado (ou rodar o script `setup_raspberry.sh`)
-- Conexão com a internet
+4. Acesse:
+- Home Assistant: `http://<ip-do-raspberry>:8123`
+- Frigate: `http://<ip-do-raspberry>:5000`
+
+## 📂 Estrutura de pastas
+
+```
+rpi-automation-setup/
+├── README.md
+├── docker-compose.yml
+├── setup_raspberry.sh
+└── frigate/
+    └── config/
+        └── config.yml
+```
 
 ---
 

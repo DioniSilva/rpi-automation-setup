@@ -23,9 +23,9 @@ echo "✅ Ativando Docker e Tailscale no boot..."
 sudo systemctl enable docker
 sudo systemctl enable tailscaled
 
-echo "🐳 Subindo o Home Assistant via Docker Compose..."
+echo "🐳 Subindo os containers via Docker Compose..."
 cd "$(dirname "$0")"
 docker compose up -d
 
 echo "🎉 Setup concluído! Acesse o Home Assistant em http://<ip-do-raspberry>:8123"
-echo "➡️  Reinicie o Raspberry para aplicar todas as permissões: sudo reboot"
+echo "📹 E o Frigate em http://<ip-do-raspberry>:5000"

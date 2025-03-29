@@ -10,21 +10,21 @@ services:
     restart: unless-stopped
     network_mode: host
 
-  frigate:
-    container_name: frigate
-    image: ghcr.io/blakeblackshear/frigate:stable
-    privileged: true
-    restart: unless-stopped
-    shm_size: "512mb"
-    volumes:
-      - ./frigate/config:/config
-      - /etc/localtime:/etc/localtime:ro
-      - ./frigate/media:/media/frigate
-    ports:
-      - "5000:5000"   # Interface Web
-      - "8554:8554"   # RTSP Restream
-      - "1935:1935"   # WebRTC/Live
-    environment:
-      FRIGATE_RTSP_PASSWORD: "1234"
-    devices:
-      - /dev/bus/usb:/dev/bus/usb  # se usar Coral USB (opcional)
+  # frigate:
+  #   container_name: frigate
+  #   image: ghcr.io/blakeblackshear/frigate:stable
+  #   privileged: true
+  #   restart: unless-stopped
+  #   shm_size: "512mb"
+  #   volumes:
+  #     - ./frigate/config:/config
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - ./frigate/media:/media/frigate
+  #   ports:
+  #     - "5000:5000"   # Interface Web
+  #     - "8554:8554"   # RTSP Restream
+  #     - "1935:1935"   # WebRTC/Live
+  #   environment:
+  #     FRIGATE_RTSP_PASSWORD: "1234"
+  #   devices:
+  #     - /dev/bus/usb:/dev/bus/usb  # se usar Coral USB (opcional)

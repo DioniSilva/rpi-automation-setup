@@ -1,5 +1,8 @@
+mqtt:
+  enabled: false
+
 cameras:
-  camera1:
+  cameraDefault1:
     ffmpeg:
       inputs:
         - path: rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
@@ -9,3 +12,5 @@ cameras:
       width: 640
       height: 480
       fps: 5
+      
+version: 0.15-1

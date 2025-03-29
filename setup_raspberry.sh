@@ -17,7 +17,7 @@ sudo pip3 install docker-compose
 
 echo "🔐 Instalando o Tailscale..."
 curl -fsSL https://tailscale.com/install.sh | sh
-sudo tailscale up --ssh
+sudo systemctl enable --now tailscaled
 
 echo "✅ Ativando Docker e Tailscale no boot..."
 sudo systemctl enable docker
